@@ -2,5 +2,12 @@
 @import '@nativescript/theme/css/default.css';
 
 Button.-primary {
-  font-size: 18;
+  font-size: 25;
 }
+
+Label {
+  background-color: rgb(42, 42, 134);
+  color:white;
+}
+
+

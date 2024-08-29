@@ -9,7 +9,7 @@ import { ItemDetailComponent } from './item/item-detail.component'
 @NgModule({
   bootstrap: [AppComponent],
   imports: [NativeScriptModule, AppRoutingModule],
-  declarations: [AppComponent, ItemsComponent, ItemDetailComponent],
+  declarations: [AppComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
 })

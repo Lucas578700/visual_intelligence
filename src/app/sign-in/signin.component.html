@@ -1,0 +1,28 @@
+<ActionBar title="Login"></ActionBar>
+
+<StackLayout backgroundColor="#3c495e" padding="20" spacing="15" verticalOptions="CenterAndExpand" [formGroup]="form">
+  <Label textWrap="true" fontSize="28" textColor="White" horizontalOptions="Center">Bem-vindo!{{'\n'}}Faça login para continuar</Label>
+
+  <TextField placeholder="E-mail" backgroundColor="#ffffff" textColor="#3c495e"  formControlName="email"
+         placeholderColor="#a0a0a0" padding="10" 
+         cornerRadius="8" ></TextField>
+         @if(email.invalid && email.touched){
+          <label>E-mail Inválido</label>
+         }
+
+  <TextField placeholder="Senha" secure="true" backgroundColor="#ffffff" formControlName="senha"
+         textColor="#3c495e" placeholderColor="#a0a0a0" 
+         padding="10" cornerRadius="8" ></TextField>
+         @if(senha.invalid && senha.touched){
+          <label>Senha Inválida</label>
+         }
+
+  <Button text="Login" backgroundColor="#5cb85c" textColor="White" (tap)="submit()"
+          fontSize="18" cornerRadius="8" padding="10" 
+          horizontalOptions="FillAndExpand"></Button>
+
+  <Button text="Esqueceu sua senha?" fontSize="14" 
+         horizontalOptions="Center"></Button>
+
+</StackLayout>
+
