@@ -7,10 +7,12 @@ import {
 } from "@angular/forms";
 
 import {
+  ActionBarComponent,
   ListViewComponent,
   NativeScriptFormsModule,
   NativeScriptRouterModule,
 } from "@nativescript/angular";
+import { ActionBar } from "@nativescript/core";
 
 @Component({
   selector: "ns-signin",
@@ -22,6 +24,7 @@ import {
     NativeScriptRouterModule,
     ReactiveFormsModule,
     NativeScriptFormsModule,
+    ActionBarComponent,
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
