@@ -1,4 +1,4 @@
-import { Component, NO_ERRORS_SCHEMA, OnInit } from "@angular/core";
+import { Component, inject, NO_ERRORS_SCHEMA, OnInit } from "@angular/core";
 import {
   FormControl,
   FormGroup,
@@ -11,6 +11,7 @@ import {
   ListViewComponent,
   NativeScriptFormsModule,
   NativeScriptRouterModule,
+  RouterExtensions,
 } from "@nativescript/angular";
 import { ActionBar } from "@nativescript/core";
 
@@ -29,6 +30,7 @@ import { ActionBar } from "@nativescript/core";
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class SigninComponent {
+  private router = inject(RouterExtensions);
   form = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     senha: new FormControl("", [Validators.required, Validators.minLength(5)]),
@@ -41,8 +43,9 @@ export class SigninComponent {
   }
   submit() {
     if (this.form.valid) {
-      const email=this.email.value
-      const senha=this.senha.value
+      const email = this.email.value;
+      const senha = this.senha.value;
+      this.router.navigate(["/home"], { clearHistory: true });
     } else {
       this.form.markAllAsTouched();
     }

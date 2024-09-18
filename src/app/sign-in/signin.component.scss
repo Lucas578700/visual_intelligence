@@ -3,10 +3,14 @@ Label {
   border-radius: 36;
 }
 
-.esqueci {
-  padding: 10 10;
-  font-size: 15;
-}
+// .esqueci {
+//   padding: 5 10;
+//   font-size: 15;
+//   background-color: gray;
+//   color: white;
+//   width: 12;
+//   height: 12;
+// }
 
 .container {
   background-color: #3c495e;
@@ -19,4 +23,8 @@ Label {
   font-size: 18;
   border-radius: 3;
   color: white;
+}
+
+.label-title{
+ text-align: left;
 }
