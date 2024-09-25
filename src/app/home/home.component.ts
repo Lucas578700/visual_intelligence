@@ -12,8 +12,21 @@ import {
   NativeScriptFormsModule,
   NativeScriptRouterModule,
 } from "@nativescript/angular";
-import { ActionBar, Image, ImageSource } from "@nativescript/core";
+import { ActionBar, Image, ImageSource, Screen } from "@nativescript/core";
 import { srcProperty } from "@nativescript/core/ui/image";
+
+interface Face {
+  bounds: {
+    origin: {
+      x: number;
+      y: number;
+    };
+    size: {
+      width: number;
+      height: number;
+    }
+  }
+}
 
 @Component({
     selector: "ns-home",
@@ -31,19 +44,26 @@ import { srcProperty } from "@nativescript/core/ui/image";
   })
   export class HomeComponent {
 
+    face: Face;
+
+    screenScale = Screen.mainScreen.scale;
+
     async teste() {
         console.log("Botão Clicado!")
         console.log(MLKitView.isAvailable());
-        const source = ImageSource.fromFileSync('~/assets/img/shoes.jpg');
+        const source = ImageSource.fromFileSync('~/assets/img/messi.jpg');
         console.log(source);
         const result = await detectWithStillImage(source, {
-            detectorType: DetectionType.Object,
+            detectorType: DetectionType.Face,
             objectDetection: {
                 classification: true,
                 multiple: true,
             }
         });
         console.log(JSON.stringify(result));
+        const faces: Face[] = result.face;
+        console.log(faces[0]);
+        this.face = faces[0];
         
     }
   }

@@ -2,11 +2,13 @@
 
 <GridLayout class="container">
   <StackLayout class="text-white m-y-auto" [formGroup]="form">
+
+    <Image src="~/assets/img/logo.png" width="200"></Image>
+
     <Label textWrap="true" fontSize="28" class="p-20"
       >Bem-vindo!{{ "\n" }}Faça login para continuar</Label
     >
 
-    <label class="label-title">E-mail</label>
     <TextField
       placeholder="E-mail"
       backgroundColor="#ffffff"
@@ -14,21 +16,22 @@
       placeholderColor="#a0a0a0"
       padding="10"
       cornerRadius="8"
+      hint="E-mail"
     ></TextField>
     @if(email.invalid && email.touched){
     <label>E-mail Inválido</label>
     }
 
-    <label class="label-title">Senha</label>
     <TextField
       placeholder="Senha"
       secure="true"
       backgroundColor="#ffffff"
       formControlName="senha"
       textColor="#3c495e"
-      placeholderColor="#a0a0a0"
+      placeholderColor="#000"
       padding="10"
       cornerRadius="8"
+      hint="Senha"
     ></TextField>
     @if(senha.invalid && senha.touched){
     <label>Senha Inválida</label>
@@ -36,7 +39,7 @@
 
     <Button
       class="btn-login"
-      text="Login"
+      text="Entrar"
       (tap)="submit()"
       horizontalOptions="FillAndExpand"
     ></Button>

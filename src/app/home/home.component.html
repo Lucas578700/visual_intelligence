@@ -1,11 +1,26 @@
 <ActionBar title="Home"></ActionBar>
 
 <GridLayout class="container">
-    <StackLayout>
-        <Label textWrap="true" fontSize="28" class="p-20"
-      >Bem-vindo!{{ "\n" }}Ao Visual Intelligence</Label
+  <StackLayout>
+    <Image src="~/assets/img/logo.png" class="action-left" width="80"></Image>
+    <Label textWrap="true" fontSize="28" class="p-20"
+      >Bem-vindo ao Visual Intelligence</Label
     >
-    <Image src="~/assets/img/objetos.jpg"></Image>
     <button (tap)="teste()">Teste</button>
-    </StackLayout>
+    <GridLayout rows="auto" columns="auto">
+      <Image src="~/assets/img/messi.jpg"></Image>
+      @if(face) {
+
+      <StackLayout
+        [translateX]="face.bounds.origin.x / screenScale"
+        [translateY]="face.bounds.origin.y / screenScale"
+        [width]="face.bounds.size.width / screenScale"
+        [height]="face.bounds.size.height / screenScale"
+        backgroundColor="red"
+        verticalAlignment="top"
+        horizontalAlignment="left"
+      ></StackLayout>
+      }
+    </GridLayout>
+  </StackLayout>
 </GridLayout>
