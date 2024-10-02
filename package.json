@@ -1,8 +1,12 @@
 {
   "name": "visual_inteligence",
   "main": "./src/main.ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "version": "npm run changelog && git add CHANGELOG.md"
+  },
   "dependencies": {
     "@angular/animations": "~18.0.0",
     "@angular/common": "~18.0.0",
@@ -28,6 +32,7 @@
     "@nativescript/types": "~8.8.0",
     "@nativescript/webpack": "~5.0.0",
     "@ngtools/webpack": "~18.0.0",
+    "conventional-changelog-cli": "^5.0.0",
     "typescript": "~5.4.0"
   }
 }
