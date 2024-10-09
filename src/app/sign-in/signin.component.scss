@@ -3,14 +3,14 @@ Label {
   border-radius: 36;
 }
 
-// .esqueci {
-//   padding: 5 10;
-//   font-size: 15;
-//   background-color: gray;
-//   color: white;
-//   width: 12;
-//   height: 12;
-// }
+.btn-cadastro {
+  background-color: transparent;
+  border: none;
+  color: #fff; /* Escolha a cor que desejar para o texto */
+  text-decoration: underline; /* Adiciona o sublinhado */
+  font-size: 16px; /* Ajuste o tamanho do texto conforme necessário */
+  padding: 0;
+}
 
 .container {
   background-color: #3c495e;

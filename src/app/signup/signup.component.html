@@ -1,4 +1,4 @@
-<ActionBar title="Login"></ActionBar>
+<ActionBar title="Cadastro"></ActionBar>
 
 <GridLayout class="container">
   <StackLayout class="text-white m-y-auto" [formGroup]="form">
@@ -6,8 +6,21 @@
     <Image src="~/assets/img/logo.png" width="200"></Image>
 
     <Label textWrap="true" fontSize="28" class="p-20"
-      >Bem-vindo!{{ "\n" }}Faça login para continuar</Label
+      >Cadastre-se</Label
     >
+
+    <TextField
+    placeholder="Nome"
+    backgroundColor="#ffffff"
+    formControlName="nome"
+    placeholderColor="#a0a0a0"
+    padding="10"
+    cornerRadius="8"
+    hint="Nome"
+  ></TextField>
+  @if(nome.invalid && nome.touched){
+  <label>Nome Inválido</label>
+  }
 
     <TextField
       placeholder="E-mail"
@@ -21,6 +34,19 @@
     @if(email.invalid && email.touched){
     <label>E-mail Inválido</label>
     }
+
+    <TextField
+    placeholder="Telefone"
+    backgroundColor="#ffffff"
+    formControlName="telefone"
+    placeholderColor="#a0a0a0"
+    padding="10"
+    cornerRadius="8"
+    hint="Telefone"
+  ></TextField>
+  @if(telefone.invalid && telefone.touched){
+  <label>Telefone Inválido</label>
+  }
 
     <TextField
       placeholder="Senha"
@@ -41,13 +67,6 @@
       class="btn-login"
       text="Entrar"
       (tap)="submit()"
-      horizontalOptions="FillAndExpand"
-    ></Button>
-
-    <Button
-      class="btn-cadastro"
-      text="Cadastre-se"
-      nsRouterLink="/signup"
       horizontalOptions="FillAndExpand"
     ></Button>
 

@@ -42,28 +42,54 @@ interface Face {
     ],
     schemas: [NO_ERRORS_SCHEMA],
   })
+
   export class HomeComponent {
-
-    face: Face;
-
+    faces: Face[] = [];  
     screenScale = Screen.mainScreen.scale;
-
+  
     async teste() {
-        console.log("Botão Clicado!")
-        console.log(MLKitView.isAvailable());
-        const source = ImageSource.fromFileSync('~/assets/img/messi.jpg');
-        console.log(source);
-        const result = await detectWithStillImage(source, {
-            detectorType: DetectionType.Face,
-            objectDetection: {
-                classification: true,
-                multiple: true,
-            }
-        });
-        console.log(JSON.stringify(result));
-        const faces: Face[] = result.face;
-        console.log(faces[0]);
-        this.face = faces[0];
-        
+      console.log("Botão Clicado!");
+      console.log(MLKitView.isAvailable());
+      
+      const source = ImageSource.fromFileSync('~/assets/img/pessoas.png');
+      console.log(source);
+      
+      const result = await detectWithStillImage(source, {
+        detectorType: DetectionType.Face,
+        objectDetection: {
+          classification: true,
+          multiple: true,  
+        }
+      });
+      
+      console.log(JSON.stringify(result));
+      this.faces = result.face || [];  
+      console.log(this.faces);
     }
   }
+  
+  // export class HomeComponent {
+
+  //   face: Face;
+
+  //   screenScale = Screen.mainScreen.scale;
+
+  //   async teste() {
+  //       console.log("Botão Clicado!")
+  //       console.log(MLKitView.isAvailable());
+  //       const source = ImageSource.fromFileSync('~/assets/img/messi.jpg');
+  //       console.log(source);
+  //       const result = await detectWithStillImage(source, {
+  //           detectorType: DetectionType.Face,
+  //           objectDetection: {
+  //               classification: true,
+  //               multiple: true,
+  //           }
+  //       });
+  //       console.log(JSON.stringify(result));
+  //       const faces: Face[] = result.face;
+  //       console.log(faces[0]);
+  //       this.face = faces[0];
+        
+  //   }
+  // }

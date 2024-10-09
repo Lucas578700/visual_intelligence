@@ -6,7 +6,25 @@
     <Label textWrap="true" fontSize="28" class="p-20"
       >Bem-vindo ao Visual Intelligence</Label
     >
+
     <button (tap)="teste()">Teste</button>
+    <GridLayout rows="auto" columns="auto">
+      <Image src="~/assets/img/pessoas.png"></Image>
+      <ng-container *ngIf="faces?.length">
+        <StackLayout *ngFor="let face of faces"
+          [translateX]="face.bounds.origin.x / screenScale"
+          [translateY]="face.bounds.origin.y / screenScale"
+          [width]="face.bounds.size.width / screenScale"
+          [height]="face.bounds.size.height / screenScale"
+          backgroundColor="red"
+          verticalAlignment="top"
+          horizontalAlignment="left"
+        ></StackLayout>
+      </ng-container>
+    </GridLayout>
+    
+
+    <!-- <button (tap)="teste()">Teste</button>
     <GridLayout rows="auto" columns="auto">
       <Image src="~/assets/img/messi.jpg"></Image>
       @if(face) {
@@ -21,6 +39,6 @@
         horizontalAlignment="left"
       ></StackLayout>
       }
-    </GridLayout>
+    </GridLayout> -->
   </StackLayout>
 </GridLayout>
