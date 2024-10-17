@@ -3,12 +3,22 @@
 <GridLayout class="container">
   <StackLayout>
     <Image src="~/assets/img/logo.png" class="action-left" width="80"></Image>
-    <Label textWrap="true" fontSize="28" class="p-20"
-      >Bem-vindo ao Visual Intelligence</Label
+    <Label textWrap="true" fontSize="24" class="first-title"
+      >Visual Intelligence</Label
     >
 
-    <button (tap)="teste()">Teste</button>
-    <GridLayout rows="auto" columns="auto">
+    <StackLayout class="box-menu">
+      <Label textWrap="true" fontSize="28" class="second-title">
+        Escolha uma opção
+      </Label>
+      <button (tap)="teste()" class="option">Ler Objetos</button>
+      <button class="option">Histórico de Leituras</button>
+      <button class="option">Tutorial</button>
+      <button class="option">Sair</button>
+    </StackLayout>
+    
+
+    <!-- <GridLayout rows="auto" columns="auto">
       <Image src="~/assets/img/pessoas.png"></Image>
       <ng-container *ngIf="faces?.length">
         <StackLayout *ngFor="let face of faces"
@@ -21,8 +31,7 @@
           horizontalAlignment="left"
         ></StackLayout>
       </ng-container>
-    </GridLayout>
-    
+    </GridLayout> -->
 
     <!-- <button (tap)="teste()">Teste</button>
     <GridLayout rows="auto" columns="auto">
